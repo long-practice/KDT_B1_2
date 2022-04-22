@@ -601,7 +601,7 @@ progress {
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 80%;
 }
 
 .img-thumbnail {
@@ -634,7 +634,7 @@ progress {
 .container-lg,
 .container-md,
 .container-sm {
-  width: 100%;
+  width: 80%;
   padding-right: var(--bs-gutter-x, 0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
@@ -7707,6 +7707,7 @@ textarea.form-control-lg {
 
 .text-nowrap {
   white-space: nowrap !important;
+  btn-white-space: nowrap !important;
 }
 
 /* rtl:begin:remove */
