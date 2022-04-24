@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from my_setting import SECRET
+import pymysql
+
+pymysql.install_as_MySQLdb()
+
+#from my_setting import SECRET
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET
+SECRET_KEY = 'django-insecure-fs=_tbh#*4(wny))!1l6x!+c02b6kb2y_%#5g2um_+hov63rqk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.252.215.112']
 
 
 # Application definition
@@ -77,11 +81,15 @@ WSGI_APPLICATION = 'b1project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ttl_db',
+        'USER': 'user',
+        'PASSWORD': 'user',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    },
 }
-
+DATABASE_OPTIONS = {'charset': 'utf8'}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
