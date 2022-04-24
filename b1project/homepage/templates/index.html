@@ -105,51 +105,17 @@
         <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row g-0">
+		{% for title in titles %}
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="folktale1" title="Story Name">
+			    <a class="portfolio-box" href="folktale1/{{ title.id  }}" title="Story Name">
                             <img class="img-fluid" src="../static/assets/img/portfolio/thumbnails/1.jpeg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">전래동화</div>
-                                <div class="project-name">콩쥐팥쥐</div>
+				<div class="project-name">{{ title.title }}</div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="static/assets/img/portfolio/fullsize/2.jpeg" title="Story Name">
-                            <img class="img-fluid" src="static/assets/img/portfolio/thumbnails/2.jpeg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">전래동화</div>
-                                <div class="project-name">선녀와 나무꾼</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="static/assets/img/portfolio/fullsize/3.jpeg" title="Story Name">
-                            <img class="img-fluid" src="static/assets/img/portfolio/thumbnails/3.jpeg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">이솝우화</div>
-                                <div class="project-name">토끼와 거북이</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="static/assets/img/portfolio/fullsize/4.jpeg" title="Story Name">
-                            <img class="img-fluid" src="static/assets/img/portfolio/thumbnails/4.jpeg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">이솝우화</div>
-                                <div class="project-name">여우와 두루미</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="/static/assets/img/portfolio/fullsize/5.jpeg" title="Story Name">
-                            <img class="img-fluid" src="/static/assets/img/portfolio/thumbnails/5.jpeg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">전래동화</div>
-                                <div class="project-name">금도끼와 은도끼</div>
-                            </div>
-                        </a>
-                    </div>
+		{% endfor %}
                 </div>
             </div>
         </div>
