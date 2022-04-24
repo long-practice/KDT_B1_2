@@ -1,10 +1,10 @@
-create table titles (
+create table homepage_titles (
     id int primary key auto_increment comment '식별자',
     title varchar(300) not null comment '제목'
 ) engine=InnoDB
 ;
 
-create table contents (
+create table homepage_contents (
     id int primary key auto_increment comment '식별자',
     line_index int not null comment '줄 번호',
     contents text not null comment '내용',
@@ -13,7 +13,7 @@ create table contents (
 ) engine=InnoDB
 ;
 
-create table talkers (
+create table homepage_talkers (
     id int primary key auto_increment comment '식별자',
     talker_identifier varchar(10) not null comment '화자 구별자',
     talker varchar(100) comment '화자',
@@ -21,9 +21,9 @@ create table talkers (
 ) engine=InnoDB
 ;
 
-insert into titles (id, title) values (null, '여우와 포도밭')
+insert into homepage_titles (id, title) values (null, '여우와 포도밭')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '배고픈 여우 한 마리가 포도밭 옆을 지나가게 되었어요.', 'n', 1)
 ,(null, 2, '여우는 포도가 매우 먹고 싶었지요. ', 'n', 1)
 ,(null, 3, '그래서 포도밭 울타리 여기저기를 살피며 들어갈 만한 구멍을 찾아보았어요. ', 'n', 1)
@@ -42,9 +42,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 16, '여우는 탄식하며 말하였지요. ', 'n', 1)
 ,(null, 17, '“아, 배부르다. 실컷 먹었으니 이제 슬슬 밖으로 나가 볼까? ', 'f1', 1)
 ;
-insert into titles (id, title) values (null, '아낌없이 주는 나무')
+insert into homepage_titles (id, title) values (null, '아낌없이 주는 나무')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '나무 한 그루가 있었어요.', 'n', 2)
 ,(null, 2, '그리고 그 나무한테 놀러 오는 귀여운 소년이 있었지요.', 'n', 2)
 ,(null, 3, '소년은 매일 나뭇가지에 매달려 놀기도 하고, 열매를 따 먹기도 하였어요. 또 술래잡기도 하고, 나무 그늘에서 낮잠도 잤지요.', 'n', 2)
@@ -62,9 +62,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 15, '앉아서 쉬기에는 늙은 나무 밑동이 최고야. 자, 이리 와서 앉아.', 'm2', 2)
 ,(null, 16, '노인은 나무가 시키는 대로 하였지요. 나무는 무척 행복하였답니다. ', 'n', 2)
 ;
-insert into titles (id, title) values (null, '얼음 속의 잉어')
+insert into homepage_titles (id, title) values (null, '얼음 속의 잉어')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '아주 추운 겨울날 한 소년이 슬프게 울고있었어요.', 'n', 3)
 ,(null, 2, '아버지가 편찮으신데 어떤 약을 써도 소용이 없으니 어쩌면 좋지? ', 'm1', 3)
 ,(null, 3, '길을 가던 한 노인이 이말을 듣게 되었지요.', 'n', 3)
@@ -85,9 +85,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 18, '고맙습니다. ', 'm1', 3)
 ,(null, 19, '그 뒤 소년의 아버지는 병이 나아 소년과 함께 행복하게 살았대요. ', 'n', 3)
 ;
-insert into titles (id, title) values (null, '임금님의 밥상')
+insert into homepage_titles (id, title) values (null, '임금님의 밥상')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날 어느 나라에 임금님이 살고 계셨어요. ', 'n', 4)
 ,(null, 2, '임금님은 몸이 뚱뚱해져서 걱정이 되셨지요. ', 'n', 4)
 ,(null, 3, '허허, 왜 이렇게 몸이 무겁고 입맛이 없을까? ', 'm1', 4)
@@ -111,9 +111,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 21, '그래, 잘 알았도다. 모두 고마운 사람들이구나. ', 'm1', 4)
 ,(null, 22, '이리하여 임금님은 모두에게 큰 상을 주시고 기뻐하셨답니다. ', 'n', 4)
 ;
-insert into titles (id, title) values (null, '금덩이보다 소중한 것')
+insert into homepage_titles (id, title) values (null, '금덩이보다 소중한 것')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '한 젊은이가 오랫동안 열심히 일을 한 뒤 품삯으로 금덩이를 받았어요.', 'n', 5)
 ,(null, 2, '고향으로 가던 길에 주막에서 하룻밤 묵게 되었지요. ', 'n', 5)
 ,(null, 3, '이튿날 아침, 주막을 나선 젊은이는 뒤에서 자기를 부르는 소리를 들었어요.', 'n', 5)
@@ -134,9 +134,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 18, '주막에 금덩이를 두고 나왔을 때부터 그것은 제 물건이 아니었습니다. 그것으로 아이를 구했으니 저는 오히려 좋은 일을 한 셈이지요. ', 'm1', 5)
 ,(null, 19, '그리고 당신도 정직한 마음씨에 대한 보답을 받은 셈이니, 좋지 않습니까? ', 'm1', 5)
 ;
-insert into titles (id, title) values (null, '꿈을 심는 노인')
+insert into homepage_titles (id, title) values (null, '꿈을 심는 노인')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날에 한 젊은이가 고을 원님으로 가게 되었지요. ', 'n', 6)
 ,(null, 2, '그는 그동안 보살펴주신 재상을 찾아가 인사를 하였지요. ', 'n', 6)
 ,(null, 3, '대감마님, 기대에 어긋나지 않는 관리가 되겠습니다. ', 'm1', 6)
@@ -155,9 +155,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 16, '일 년을 보고 농사를 짓고, 십 년을 보고 나무를 심고, 백 년을 보고 인재를 기른다고 하지 않던가? ', 'm2', 6)
 ,(null, 17, '신임 감사는 재상의 말을 듣고 크게 깨달았답니다. ', 'n', 6)
 ;
-insert into titles (id, title) values (null, '우산 장수와 부채 장수')
+insert into homepage_titles (id, title) values (null, '우산 장수와 부채 장수')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날 두 아들을 둔 어머니가 살았어요. ', 'n', 7)
 ,(null, 2, '그런데 어머니는 늘 두 아들 때문에 마음이 편할 날이 없었지요.왜냐하면 큰 아들은 우산 장수였고 작은 아들은 부채 장수였기 때문이에요.날씨가 더운 날이면 어머니는 하늘만 쳐다보았어요. ', 'n', 7)
 ,(null, 3, '아이구! 이렇게 날씨가 덥고 맑으니 우산이 안 팔리겠구나. ', 'f1', 7)
@@ -177,9 +177,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 17, '그것 참 좋은 생각이네요.', 'f1', 7)
 ,(null, 18, '그 뒤 어머니는 아들 걱정에서 벗어나 행복하게 살았답니다. ', 'n', 7)
 ;
-insert into titles (id, title) values (null, '황소와 바꾼 무')
+insert into homepage_titles (id, title) values (null, '황소와 바꾼 무')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날 어느 마을에 부지런한 농부가 살았어요. ', 'n', 8)
 ,(null, 2, '어느 해 농부가 밭에 무를 심었는데 아주 잘자랐어요. ', 'n', 8)
 ,(null, 3, '야~.이렇게큰무는처음인걸! 원님이 많은 은혜를 베풀어 주시니 무를 원님께 갖다 드려야지. ', 'm1', 8)
@@ -203,9 +203,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 21, '아이고, 망했다. 망했어! ', 'm4', 8)
 ,(null, 22, '욕심쟁이 농부는 끙끙거리며 무를 가지고 집으로 돌아왔답니다. ', 'n', 8)
 ;
-insert into titles (id, title) values (null, '마음대로 의자')
+insert into homepage_titles (id, title) values (null, '마음대로 의자')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '당나귀 한 마리가 도토리를 바구니에 가득 담아 집으로 돌아가고 있었어요.', 'n', 9)
 ,(null, 2, '얼마 쯤 가다보니 의자가 하나 놓여 있었지요. ', 'n', 9)
 ,(null, 3, '마. 음. 대. 로. 의. 자? 정말 고마운 의자로군. 그럼 좀 쉬었다갈까? ', 'm1', 9)
@@ -229,9 +229,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 21, '당나귀는 어리둥절했지요. ', 'n', 9)
 ,(null, 22, '정말 도토리가 자라서 밤이 된 것일까요?', 'n', 9)
 ;
-insert into titles (id, title) values (null, '개와 돼지')
+insert into homepage_titles (id, title) values (null, '개와 돼지')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날 옛적에, 한 할머니가 개와 돼지를 기르셨습니다. ', 'n', 10)
 ,(null, 2, '할머니는 개와 돼지를 무척 귀여워하셨습니다. 할머니가 개의 머리를 쓰다듬으며 말씀하셨습니다. ', 'n', 10)
 ,(null, 3, '참 착하구나. 집도 잘 지키고....', 'f1', 10)
@@ -262,9 +262,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 28, '이튿날, 할머니가 돼지를 장에 내다 파셨습니다.', 'n', 10)
 ,(null, 29, '돼지는 할머니의 사랑을 더 받으려다 그만 팔려가고 말았습니다. ', 'n', 10)
 ;
-insert into titles (id, title) values (null, '작은 씨앗의 꿈')
+insert into homepage_titles (id, title) values (null, '작은 씨앗의 꿈')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '따뜻한 봄이었어요. 땅 위에 조그만 씨앗 하나가 놓여 있었지요. ', 'n', 11)
 ,(null, 2, '팔랑팔랑 나비 한 마리가 씨앗 곁으로 날아왔어요. ', 'n', 11)
 ,(null, 3, '넌 누구니?', 'f2', 11)
@@ -298,9 +298,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 31, '해님! 바람님! 비님! 흙님! 모두모두 고마워요. 여러분이 아니었으면 난 아직도 못생기고 작은 씨앗으로 남아 있었을 거예요. ', 'f1', 11)
 ,(null, 32, '밭에서는 예쁜 꽃이 환하게 웃고 있었습니다.', 'n', 11)
 ;
-insert into titles (id, title) values (null, '금도끼와 은도끼')
+insert into homepage_titles (id, title) values (null, '금도끼와 은도끼')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날 옛날 깊은 산골에 한 나무꾼이 살고 있었어요.', 'n', 12)
 ,(null, 2, '어느 날 연못가에서 나무를 자르다가 그만 도끼를 연못에 풍덩 빠뜨리고 말았어요.', 'n', 12)
 ,(null, 3, '나무꾼은 어찌할 바를 몰라 연못 주변을 서성거리고 있었어요. ', 'n', 12)
@@ -330,9 +330,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 27, '흑흑~. 하나뿐인 쇠도끼인데 괜히 욕심을 부리다가 그만.... ', 'm3', 12)
 ,(null, 28, '욕심 많은 나무꾼은 후회했지만 아무 소용이 없었어요. ', 'n', 12)
 ;
-insert into titles (id, title) values (null, '진짜 부자')
+insert into homepage_titles (id, title) values (null, '진짜 부자')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '북쪽 마을에 소문난 부자 윤노인이 살고있었어요. ', 'n', 13)
 ,(null, 2, '어느 날, 윤노인은 이상한 꿈을 꾸었어요. ', 'n', 13)
 ,(null, 3, '윤 노인은 들어라. 내일 정오에 이 마을에서 가장 부자인 사람이 죽게 될 것이다. 그러니 미리 준비하여 장례식을 성대하게 치르도록 하여라. ', 'm1', 13)
@@ -371,9 +371,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 36, '윤 노인은 지난날을 후회했어요.', 'n', 13)
 ,(null, 37, '그리고 신령님의 말씀대로 박 노인의 장례를 성대하게 치러주었답니다. ', 'n', 13)
 ;
-insert into titles (id, title) values (null, '두꺼비 정승')
+insert into homepage_titles (id, title) values (null, '두꺼비 정승')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날 옛날 창빗골이라는 마을에 착한 부부가 살고 있었어요. ', 'n', 14)
 ,(null, 2, '부부는 서로 아끼고 사랑하며 살았지만 자식이 없었어요. ', 'n', 14)
 ,(null, 3, '여보, 우리에게는 왜 자식이 없는 걸까요? 우리에게도 예쁘고 사랑스런 아이가 있다면 정말 좋을 텐데.... ', 'f1', 14)
@@ -438,9 +438,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 62, '동네 사람들은 두꺼비 아들을 두꺼비 정승이라 부르며 좋아했어요. ', 'n', 14)
 ,(null, 63, '두꺼비 정승은 그 뒤에 어려운 사람들을 아끼고 돌보는 훌륭한 정승이 되었답니다.', 'n', 14)
 ;
-insert into titles (id, title) values (null, '오성과 한음')
+insert into homepage_titles (id, title) values (null, '오성과 한음')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '무더운 여름이 지나고 어느덧 가을이 왔습니다. ', 'n', 15)
 ,(null, 2, '어느날 아침, 한음 이덕형이 친한친구인 오성 이항복의 집에 놀러 왔습니다.', 'n', 15)
 ,(null, 3, '오성의 집 마당 큰 감나무에는 빨간 감들이 탐스럽게 열려 있었습니다. ', 'n', 15)
@@ -489,9 +489,9 @@ insert into contents (id, line_index, contents, talker_identifier, title_id) val
 ,(null, 46, '우리 집 하인들이 생각이 모자랐던 것 같구나. 다시는 그런 일이 없도록 하마. ', 'm3', 15)
 ,(null, 47, '그리하여 오성과 한음은 잘 익은 감을 맛있게 먹을 수 있었습니다.', 'n', 15)
 ;
-insert into titles (id, title) values (null, '짧아진 바지')
+insert into homepage_titles (id, title) values (null, '짧아진 바지')
 ;
-insert into contents (id, line_index, contents, talker_identifier, title_id) values
+insert into homepage_contents (id, line_index, contents, talker_identifier, title_id) values
 (null, 1, '옛날, 어느 마을에 한 부자가 살고 있었습니다.', 'n', 16)
 ,(null, 2, '그 부자에게는 딸 셋이 있었습니다. ', 'n', 16)
 ,(null, 3, '세 딸은 아버지의 재산을 더 많이 물려받기 위해서 서로 자기가 아버지를 잘 모신다고 뽐냈습니다. ', 'n', 16)
