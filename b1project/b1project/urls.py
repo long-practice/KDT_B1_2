@@ -19,6 +19,6 @@ from homepage.views import index, folktale1
 
 urlpatterns = [
     path('', index), # 127.0.0.1/
-    path('folktale1/', folktale1),
+    path('folktale1/<int:id>/', folktale1),
     path('admin/', admin.site.urls),
 ]
