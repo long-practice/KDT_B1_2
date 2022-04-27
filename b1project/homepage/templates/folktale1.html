@@ -27,7 +27,7 @@
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
                         <p class="text-white-50 mb-4">전래동화</p>
-			<h1 class="text-white font-weight-bold">{{ title.name }}</h1>
+			<h1 class="text-white font-weight-bold">{{ title.title }}</h1>
                         <hr class="divider" />
                     </div>
                 </div>
@@ -51,36 +51,32 @@
                         <div class="mt-5">
                             <div class="mb-2"></div>
                             <h3 class="h4 mb-2">저자</h3>
-                            <p class="text-muted mb-0">미상</p>
+                            <p class="text-muted mb-0">{{ title.author }}</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"></div>
                             <h3 class="h4 mb-2">구분</h3>
-                            <p class="text-muted mb-0">전래동화</p>
+                            <p class="text-muted mb-0">{{ title.genre }}</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"></div>
                             <h3 class="h4 mb-2">등장인물</h3>
-                            <p class="text-muted mb-0">콩쥐</p>
-                            <p class="text-muted mb-0">팥쥐</p>
-                            <p class="text-muted mb-0">새어머니</p>
-                            <p class="text-muted mb-0">원님</p>
-                            <p class="text-muted mb-0">하인</p>
+                            {% for character in characters %}
+                                <p class="text-muted mb-0">{{character}}</p>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"></div>
                             <h3 class="h4 mb-2">목소리</h3>
-                            <p class="text-muted mb-0">콩쥐</p>
-                            <p class="text-muted mb-0">팥쥐</p>
-                            <p class="text-muted mb-0">새어머니</p>
-                            <p class="text-muted mb-0">원님</p>
-                            <p class="text-muted mb-0">하인</p>
+                            {% for character in characters %}
+                                <p class="text-muted mb-0">{{character}}</p>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

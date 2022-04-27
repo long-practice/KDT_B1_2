@@ -18,8 +18,11 @@ def folktale1(request, id):
     unordered_contents_only = []
     for i in unordered_contents :
         unordered_contents_only.append(i.contents)
-    contents = ''.join(unordered_contents_only)
-    context = {'contents': contents, 'title': title}
+    contents = ' '.join(unordered_contents_only)
+    
+    characters = title.characters.split(',')
+    
+    context = {'contents': contents, 'title': title, 'characters' : characters}
     print(contents)
 
     return render(request, 'folktale1.html', context)
