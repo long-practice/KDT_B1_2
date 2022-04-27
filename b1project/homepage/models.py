@@ -4,7 +4,10 @@ from django.db import models
 class Titles(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=300)
-
+    author = models.CharField(max_length=300)
+    genre = models.CharField(max_length=200)
+    characters = models.CharField(max_length=300)
+    
 class Contents(models.Model):
     id = models.AutoField(primary_key=True)
     line_index = models.IntegerField(default=0)
