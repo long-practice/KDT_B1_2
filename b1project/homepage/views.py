@@ -18,8 +18,26 @@ def folktale1(request, id):
     unordered_contents_only = []
     for i in unordered_contents :
         unordered_contents_only.append(i.contents)
-    contents = ''.join(unordered_contents_only)
+    contents = ' '.join(unordered_contents_only)
     context = {'contents': contents, 'title': title}
     print(contents)
 
     return render(request, 'folktale1.html', context)
+
+def voicetest(request):
+    print('voicetest in' + str(request))
+    print('voicetest db select')
+    # unordered_contents = title.contents_set.all()
+    # unordered_contents_only = []
+    # for i in unordered_contents :
+    #     unordered_contents_only.append(i.contents)
+    # contents = ''.join(unordered_contents_only)
+    # context = {'contents': contents, 'title': title}
+    # print(contents)
+    if request.method == "POST":
+        print(request.POST)
+        form = request.POST
+        if form.is_valid():
+            text = request.POST['text']
+
+    return render(request, 'voicetest.html')

@@ -65,11 +65,11 @@
         </section>
         <!-- Services-->
         <section class="page-section" id="use">
-            <div class="container px-4 px-lg-5">
+            <div class="container-fluid px-4 px-lg-5">
                 <h2 class="text-center mt-0">어떻게 사용하나요?</h2>
-                <p class="text-center mb-4">동화책 목록을 보고 여러분이 읽고싶은 이야기주머니를 클릭해주세요!</p>
+                <p class="text-center mb-5">동화책 목록을 보고 여러분이 읽고싶은 이야기주머니를 클릭해주세요!</p>
                 <hr class="divider" />
-                <div class="row gx-4 gx-lg-5">
+                <div class="row gx-5 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-book fs-1 text-primary"></i></div>
@@ -100,22 +100,38 @@
                     </div>
                 </div>
             </div>
+
+            <br><br>
+            <br><br>
+            <br>
+
+            <div class="container-fluid px-4 px-lg-5 text-center">
+                <h2 class="text-center mt-0">잠깐 동화를 듣기 전에 어떤 목소리가 있는지 들어볼까요?</h2>
+                <p class="text-center mb-5">직접 텍스트를 입력하고 원하는 목소리를 찾아보세요!</p>
+                <div style = "text-align:center">
+                    <a class="bi-play-btn fs-1 text-primary" href="voicetest/" title="Voice Test" >
+                        <h3 class="h4 mb-2">체험하기</h3>
+                    </a>
+                </div>
+                <hr class="divider" />
+            </div>
+
         </section>
         <!--Story List-->
         <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-		{% for title in titles %}
+		            {% for title in titles %}
                     <div class="col-lg-4 col-sm-6">
-			    <a class="portfolio-box" href="folktale1/{{ title.id  }}" title="Story Name">
+			            <a class="portfolio-box" href="folktale1/{{ title.id  }}" title="Story Name">
                             <img class="img-fluid" src="../static/assets/img/portfolio/thumbnails/1.jpeg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">전래동화</div>
-				<div class="project-name">{{ title.title }}</div>
+				                <div class="project-name">{{ title.title }}</div>
                             </div>
                         </a>
                     </div>
-		{% endfor %}
+		            {% endfor %}
                 </div>
             </div>
         </div>
@@ -157,7 +173,7 @@
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
-        <script src="{% static 'js/scripts.js%'}"></script>
+        <script src="{% static 'js/scripts.js'%}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
