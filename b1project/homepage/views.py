@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Titles
 from .models import Contents
 from .models import Talker
+import json
 
 # Create your views here.
 def index(request):
@@ -12,20 +13,15 @@ def index(request):
     return render(request, 'index.html', context)
 
 def folktale1(request, id):
-    print('forktale in' + str(request))
     title = Titles.objects.get(pk=id)
-    print(title)
-    print('forktale db select')
     unordered_contents = title.contents_set.all()
-    unordered_contents_only = []
-    for i in unordered_contents :
-        unordered_contents_only.append(i.contents)
-    contents = ' '.join(unordered_contents_only)
+    line_index_list = []
+    for i in unordered_contents:
+        line_index_list.append(i.line_index)
     
     characters = title.characters.split(',')
-    context = {'contents': contents, 'title': title, 'characters' : characters}
-    
-    #context = {'contents': contents, 'title': title}
-    print(contents)
+    line_index_list_json = json.dumps(line_index_list)
 
+    context = {'contents': unordered_contents, 'title': title, 'characters' : characters , 'line_index_list': line_index_list_json}
+    
     return render(request, 'folktale1.html', context)

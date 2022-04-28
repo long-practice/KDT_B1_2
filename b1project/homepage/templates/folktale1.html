@@ -33,7 +33,7 @@
                 </div>
             </div>
         </header>
-        <!-- Services-->
+        <!-- Services-->:
         <section class="page-section" id="use">
             <div class="text-center">
                 <img class="rounded float-right" src="../../static/assets/img/images/{{ title.id }}.jpg" alt="..." />
@@ -42,7 +42,12 @@
             <div class="container px-4 px-lg-5">
                 <h2 class="text-center mt-0">이야기</h2>
                 <p class="text-center mb-4">
-			{{ contents  }}
+			{% for content in contents %}
+				{{ content.contents  }} <br>
+				<audio id="audio_{{ content.line_index}}" preload="true"> 
+					<source src="../../static/file_audio/{{ content.title_id }}/{{ content.line_index}}.wav" type="audio/wav">
+				</audio>
+			{% endfor  %}
                 </p>
                 <hr class="divider" />
 
@@ -84,17 +89,13 @@
         </section>
         <div class="container-sm">
             <div class="text-center">
-                <audio id="audio" preload="true">
-                    <!-- audio file -->
-                    <sorce src="../file_audio/sample.wav" type="audio/wav"/>
-                </audio>
                 <a href="#" onclick="playAudio()" id="audioPlay" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
                     <i class="bi-play-fill fs-1 text-primary"></i>
                 </a>
                 <a href="#" onclick="pauseAudio()" id="audioPause" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
                     <i class="bi-pause-fill fs-1 text-primary"></i>
-                </a>
-                <a href="#" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
+		</a> 
+                <a href="#" onclick="stopAudio()" id="audioPause" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
                     <i class="bi-stop-fill fs-1 text-primary"></i>
                 </a>
                 </div>
@@ -113,15 +114,32 @@
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
-        <script src="{% static 'js/scripts.js%'}"></script>
+        <script src="../../static/js/scripts.js"></script>
         <script>
-            var audio = document.getElementById("audio");
+  	    var line_index_list = {{ line_index_list|safe }};
+	    var audio;
+	    var current = 0;
             function playAudio() {
-                audio.play();
-            }
-            function pauseAudio() {
+            	playAudioRecur(current, line_index_list);
+	    }
+	    function pauseAudio() {
+	        audio.pause(); 
+	    }
+            function stopAudio() {
                 audio.pause();
-            }
+		audio.currentTime = 0;
+                current = 0;
+	    }
+	    function playAudioRecur(current_index, line_index) {
+		    if (current_index < line_index.length) {
+			current = current_index;
+			audio = document.getElementById("audio_" + line_index_list[current_index]);
+                	audio.play();
+                	audio.addEventListener("ended", function() { playAudioRecur(current_index + 1, line_index) });
+		    } else {
+		        current = 0;
+		    }
+	    }
         </script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
