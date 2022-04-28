@@ -1,6 +1,8 @@
+from inspect import FrameInfo
 from django.shortcuts import render
 from .models import Titles
 from .models import Contents
+from .models import Talker
 
 # Create your views here.
 def index(request):
@@ -21,8 +23,9 @@ def folktale1(request, id):
     contents = ' '.join(unordered_contents_only)
     
     characters = title.characters.split(',')
-    
     context = {'contents': contents, 'title': title, 'characters' : characters}
+    
+    #context = {'contents': contents, 'title': title}
     print(contents)
 
     return render(request, 'folktale1.html', context)

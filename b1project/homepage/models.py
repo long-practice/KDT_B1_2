@@ -14,3 +14,10 @@ class Contents(models.Model):
     contents = models.TextField()
     talker_identifier =  models.CharField(max_length=10)
     title = models.ForeignKey(Titles, on_delete=models.CASCADE)
+
+class Talker(models.Model):
+    id = models.AutoField(primary_key=True)
+    line_index = models.IntegerField(default=0)
+    contents = models.TextField()
+    talker_identifier =  models.CharField(max_length=10)
+    title = models.ForeignKey(Titles, on_delete=models.CASCADE)
