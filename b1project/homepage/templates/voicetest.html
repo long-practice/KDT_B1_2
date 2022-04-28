@@ -61,9 +61,24 @@
             </div>
             <div class="container px-4 px-lg-5">
                 <form method="POST" class = "text-center">{% csrf_token %}
-                    <input type="text" placeholder="텍스트를 입력하세요" style="width:1200px;height:300px;font-size:30px;text-align=left;padding-top:5;">
-                    <br><br>
-                    <br><br>
+                    <input type="text" name="text" placeholder="한글 텍스트를 입력하세요" style="width:1200px;height:50px;font-size:25px;text-align:left;padding-top:5">
+                    <br><br><br>
+                    <p><span style="font-size: 200%">목소리를 선택해주세요</span></p>
+                    <select name="voice" style="width:100px;height:30px;font-size:15px">
+                        <option value="None">목소리 선택</option>
+                        <option value="m1">남자1</option>
+                        <option value="m2">남자2</option>
+                        <option value="m3">남자3</option>
+                        <option value="m4">남자4</option>
+                        <option value="m5">남자5</option>
+                        <option value="m6">남자6</option>
+                        <option value="w1">여자1</option>
+                        <option value="w2">여자2</option>
+                        <option value="w3">여자3</option>
+                        <option value="w4">여자4</option>
+                        <option value="w5">여자5</option>
+                    </select>
+                    <br><br><br><br><br><br>
                     <button type="submit" style="width:200px;height:50px;font-size:20px;"> 들어보기 </button>
                 </form>
             </div>
@@ -88,8 +103,6 @@
             </div>
         </div>
 
-
-        <a class="btn btn-outline-primary" href="/" role="button">뒤로가기</a>
 
         <!-- Footer-->
         <footer class="bg-light py-5">
