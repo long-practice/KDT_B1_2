@@ -29,12 +29,14 @@ def folktale1(request, id):
     return render(request, 'folktale1.html', context)
 
 def voicetest(request):
-    if request.method == "POST":
-        # create session_id
-        if not request.session.session_key:
-            request.session.create()
-        client_session_id = request.session.session_key
+    # create session_id
+    if not request.session.session_key:
+        request.session.create()
+    client_session_id = request.session.session_key
 
+    audio = None
+
+    if request.method == "POST":
         # wav file directory
         cwd = os.getcwd()
         audio_dir = os.path.join(cwd, 'static', 'file_audio', f'{client_session_id}')
@@ -49,22 +51,15 @@ def voicetest(request):
             os.system(cmd)
 
             # waiting making the wav file
+            # wav file is made only one file
             while len(os.listdir(audio_dir)):
                 pass
 
-
-
-
-
-            # show the wav file
-
-
-
-            # print('=======================================')
-            # print('text:', text, 'voice:', voice)
-            # print('user_id:', request.session.session_key)
-            # print('=======================================')
+            # get one wav file
+            audio = os.listdir(audio_dir)[0]
         else:
             print('wrong form')
+
+        return render(request, 'voicetest.html', audio, client_session_id)
 
     return render(request, 'voicetest.html')

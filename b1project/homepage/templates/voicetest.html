@@ -86,9 +86,8 @@
 
         <div class="container-sm">
             <div class="text-center">
-                <audio id="audio" preload="true">
-                    <!-- audio file -->
-                    <source src="../file_audio/sample.wav" type="audio/wav"/>
+                <audio id = "audio_custom" preload="true">
+                    <source src="../../static/file_audio/{{ session_id }}">
                 </audio>
                 <a href="#" onclick="playAudio()" id="audioPlay" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
                     <i class="bi-play-fill fs-1 text-primary"></i>
@@ -96,10 +95,9 @@
                 <a href="#" onclick="pauseAudio()" id="audioPause" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
                     <i class="bi-pause-fill fs-1 text-primary"></i>
                 </a>
-                <a href="#" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
+                <a href="#" onclick="stopAudio()" id="audioStop" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
                     <i class="bi-stop-fill fs-1 text-primary"></i>
                 </a>
-                </div>
             </div>
         </div>
 
@@ -122,6 +120,10 @@
             function pauseAudio() {
                 audio.pause();
             }
+            function stopAudio() {
+                audio.pause();
+		        audio.currentTime = 0;
+	        }
         </script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
