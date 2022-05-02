@@ -53,8 +53,9 @@ def voicetest(request):
 
             # command input "python synthesizer"
             # out directory: ....../static/file_audio/{client_session_id}
-            synthesizer = '/home/workspace/model/KDT_B1/Tacotron2-Wavenet-Korean/synthesizer.py'
-            cmd = f'python {synthesizer} --sample_path {audio_dir} --text "{text}" --speaker_id {voice_to_num[voice]}'
+            synthesizer = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean/synthesizer.py'
+            load = 'logdir-tacotron2/++++++++++_2022-04-25_05-21-56'
+            cmd = f'python {synthesizer} --load {load} --sample_path {audio_dir} --text "{text}" --speaker_id {voice_to_num[voice]} --num_speakers 11'
             os.system(cmd)
 
             # waiting making the wav file
