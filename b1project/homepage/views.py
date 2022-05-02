@@ -47,7 +47,7 @@ def voicetest(request):
                 os.remove(audio_dir + file)
 
             text, voice = form['text'], form['voice']
-            cmd = 'python batch.py ' + f'--text {text}' + f'--voice {voice}' + f'--session_id {client_session_id}'
+            cmd = 'python /home/workspace/model/KDT_B1/Tacotron2-Wavenet-Korean/batch.py ' + f'--text "{text}"' + f'--voice {voice}' + f'--session_id {client_session_id}'
             os.system(cmd)
 
             # waiting making the wav file
