@@ -41,7 +41,8 @@ def voicetest(request):
     # make audio file directory
     cwd = os.getcwd()
     audio_dir = os.path.join(cwd, 'homepage', 'static', 'file_audio', f'{client_session_id}')
-    os.mkdir(audio_dir)
+    if not os.isdir(audio_dir):
+        os.mkdir(audio_dir)
 
     audio = None
 
