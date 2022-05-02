@@ -46,8 +46,9 @@ def voicetest(request):
 
         form = request.POST
         if len(form['text']) and form['voice'] != 'None':
-            for file in os.listdir(audio_dir):
-                os.remove(audio_dir + file)
+            if os.path.isdir(audio_dir):
+                for file in os.listdir(audio_dir):
+                    os.remove(audio_dir + file)
 
             text, voice = form['text'], form['voice']
 
