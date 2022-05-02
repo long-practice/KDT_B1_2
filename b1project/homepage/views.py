@@ -37,13 +37,15 @@ def voicetest(request):
         request.session.create()
     client_session_id = request.session.session_key
 
+    # wav file directory
+    # make audio file directory
+    cwd = os.getcwd()
+    audio_dir = os.path.join(cwd, 'static', 'file_audio', f'{client_session_id}')
+    os.mkdir(audio_dir)
+
     audio = None
 
     if request.method == "POST":
-        # wav file directory
-        cwd = os.getcwd()
-        audio_dir = os.path.join(cwd, 'static', 'file_audio', f'{client_session_id}')
-
         form = request.POST
         if len(form['text']) and form['voice'] != 'None':
             if os.path.isdir(audio_dir):
