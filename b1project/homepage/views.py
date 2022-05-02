@@ -64,7 +64,7 @@ def voicetest(request):
 
             # waiting making the wav file
             # wav file is made only one file
-            while len(os.listdir(audio_dir)):
+            while not len(os.listdir(audio_dir)):
                 pass
 
             # get one wav file
