@@ -1,8 +1,10 @@
 import os
-
+from inspect import FrameInfo
 from django.shortcuts import render
 from .models import Titles
 from .models import Contents
+from .models import Talker
+import json
 
 voice_to_num = {'m1': 0, 'm2': 1, 'm3': 2, 'm4' : 3, 'm5': 4, 'm6': 5,
                 'w1': 6, 'w2': 7, 'w3': 8, 'w4': 9, 'w5': 10}
@@ -16,18 +18,17 @@ def index(request):
     return render(request, 'index.html', context)
 
 def folktale1(request, id):
-    print('forktale in' + str(request))
     title = Titles.objects.get(pk=id)
-    print(title)
-    print('forktale db select')
     unordered_contents = title.contents_set.all()
-    unordered_contents_only = []
-    for i in unordered_contents :
-        unordered_contents_only.append(i.contents)
-    contents = ' '.join(unordered_contents_only)
-    context = {'contents': contents, 'title': title}
-    print(contents)
+    line_index_list = []
+    for i in unordered_contents:
+        line_index_list.append(i.line_index)
+    
+    characters = title.characters.split(',')
+    line_index_list_json = json.dumps(line_index_list)
 
+    context = {'contents': unordered_contents, 'title': title, 'characters' : characters , 'line_index_list': line_index_list_json}
+    
     return render(request, 'folktale1.html', context)
 
 def voicetest(request):
