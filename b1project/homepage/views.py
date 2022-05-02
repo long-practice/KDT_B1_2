@@ -6,6 +6,8 @@ from .models import Contents
 from .models import Talker
 import json
 
+voice_to_num = {'m1': 0, 'm2': 1, 'm3': 2, 'm4' : 3, 'm5': 4, 'm6': 5,
+                'w1': 6, 'w2': 7, 'w3': 8, 'w4': 9, 'w5': 10}
 
 # Create your views here.
 def index(request):
@@ -48,7 +50,11 @@ def voicetest(request):
                 os.remove(audio_dir + file)
 
             text, voice = form['text'], form['voice']
-            cmd = 'python /home/workspace/model/KDT_B1/Tacotron2-Wavenet-Korean/batch.py ' + f'--text "{text}"' + f'--voice {voice}' + f'--session_id {client_session_id}'
+
+            # command input "python synthesizer"
+            # out directory: ....../static/file_audio/{client_session_id}
+            synthesizer = '/home/workspace/model/KDT_B1/Tacotron2-Wavenet-Korean/synthesizer.py'
+            cmd = f'python {synthesizer} --sample_path {audio_dir} --text "{text}" --speaker_id {voice_to_num[voice]}'
             os.system(cmd)
 
             # waiting making the wav file
