@@ -12,9 +12,15 @@ voice_to_num = {'m1': 0, 'm2': 1, 'm3': 2, 'm4' : 3, 'm5': 4, 'm6': 5,
 # Create your views here.
 def index(request):
     print('session:', request.session.session_key)
+    no_voice_titles = [4, 8, 9, 11, 13, 14, 15, 16, 17]
     titles = Titles.objects.all()
-    context = {'titles': titles}
+    titles_with_voice = []
+    for title in titles :
+        if title.id not in no_voice_titles :
+            titles_with_voice.append(title)
 
+    context = {'titles': titles_with_voice}
+    
     return render(request, 'index.html', context)
 
 def folktale1(request, id):
