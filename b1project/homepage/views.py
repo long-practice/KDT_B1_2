@@ -38,6 +38,7 @@ def folktale1(request, id):
     return render(request, 'folktale1.html', context)
 
 def voicetest(request):
+    os.chdir('/home/app/KDT_B1_2/b1project')
     # create session_id
     if not request.session.session_key:
         request.session.create()
@@ -57,7 +58,7 @@ def voicetest(request):
         if len(form['text']) and form['voice'] != 'None':
             if os.path.isdir(audio_dir):
                 for file in os.listdir(audio_dir):
-                    os.remove(audio_dir + file)
+                    os.remove(audio_dir + '/' +  file)
 
             text, voice = form['text'], form['voice']
 
@@ -66,18 +67,27 @@ def voicetest(request):
             synthesizer = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/synthesizer.py'
             load = 'logdir-tacotron2/++++++++++_2022-04-25_05-21-56'
             cmd = f'python {synthesizer} --load {load} --sample_path {audio_dir} --text "{text}" --speaker_id {voice_to_num[voice]} --num_speakers 11'
-            os.system(f'python /home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/batch2.py --cmd "{cmd}"')
-
+            os.chdir('/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/')
+            os.system(cmd)
+            #os.system(f'python /home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/batch2.py --cmd "{cmd}"')
+            
             # waiting making the wav file
             # wav file is made only one file
-            while not len(os.listdir(audio_dir)):
-                pass
+            #while not len(os.listdir(audio_dir)):
+            #    pass
 
             # get one wav file
-            audio = os.listdir(audio_dir)[0]
+            print(os.listdir(audio_dir))
+            for file_name in os.listdir(audio_dir) :
+                if 'wav' in file_name :
+                    audio = file_name
+                    break
+            print(audio)
         else:
             print('wrong form')
+        
+        context = {'audio_name': audio, 'client_session_id':client_session_id}
 
-        return render(request, 'voicetest.html', audio, client_session_id)
+        return render(request, 'voicetest.html', context)
 
     return render(request, 'voicetest.html')
