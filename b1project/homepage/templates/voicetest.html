@@ -87,7 +87,7 @@
         <div class="container-sm">
             <div class="text-center">
                 <audio id = "audio_custom" preload="true">
-                    <source src="../../static/file_audio/{{ session_id }}">
+			<source src="../../static/file_audio/{{ client_session_id }}/{{audio_name}}">
                 </audio>
                 <a href="#" onclick="playAudio()" id="audioPlay" class="btn btn-default active" role="button" data-bs-toggle="button" aria-pressed="true">
                     <i class="bi-play-fill fs-1 text-primary"></i>
@@ -113,7 +113,7 @@
         <!-- Core theme JS-->
         <script src="{% static 'js/scripts.js' %}"></script>
         <script>
-            var audio = document.getElementById("audio");
+            var audio = document.getElementById("audio_custom");
             function playAudio() {
                 audio.play();
             }
