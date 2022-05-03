@@ -58,11 +58,9 @@ def voicetest(request):
             # command input "python synthesizer"
             # out directory: ....../static/file_audio/{client_session_id}
             synthesizer = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/synthesizer.py'
-            synthesizer_path = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS'
-            os.system(f'cd {synthesizer_path}')
             load = 'logdir-tacotron2/++++++++++_2022-04-25_05-21-56'
             cmd = f'python {synthesizer} --load {load} --sample_path {audio_dir} --text "{text}" --speaker_id {voice_to_num[voice]} --num_speakers 11'
-            os.system(cmd)
+            os.system(f'python /home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/batch2.py --cmd "{cmd}"')
 
             # waiting making the wav file
             # wav file is made only one file
@@ -71,7 +69,6 @@ def voicetest(request):
 
             # get one wav file
             audio = os.listdir(audio_dir)[0]
-            os.system(f'cd {cwd}')
         else:
             print('wrong form')
 
