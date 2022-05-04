@@ -6,8 +6,7 @@ from .models import Contents
 from .models import Talker
 import json
 
-voice_to_num = {'m1': 0, 'm2': 1, 'm3': 2, 'm4' : 3, 'm5': 4, 'm6': 5,
-                'w1': 6, 'w2': 7, 'w3': 8, 'w4': 9, 'w5': 10}
+voice_to_num = {'m1': 2, 'm2': 3, 'm3': 6, 'm4': 8, 'm5': 9, 'm6': 10, 'w1': 11}
 
 # Create your views here.
 def index(request):

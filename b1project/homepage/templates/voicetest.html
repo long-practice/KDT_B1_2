@@ -61,7 +61,7 @@
             </div>
             <div class="container px-4 px-lg-5">
                 <form method="POST" class = "text-center">{% csrf_token %}
-                    <input type="text" name="text" placeholder="한글 텍스트를 입력하세요" style="width:1200px;height:50px;font-size:25px;text-align:left;padding-top:5">
+                    <input type="text" name="text" placeholder="한글 텍스트를 입력하세요(특수문자나 숫자를 넣게되면 음성생성이 안돼요)" style="width:1200px;height:50px;font-size:25px;text-align:left;padding-top:5">
                     <br><br><br>
                     <p><span style="font-size: 200%">목소리를 선택해주세요</span></p>
                     <select name="voice" style="width:100px;height:30px;font-size:15px">
@@ -73,13 +73,12 @@
                         <option value="m5">남자5</option>
                         <option value="m6">남자6</option>
                         <option value="w1">여자1</option>
-                        <option value="w2">여자2</option>
-                        <option value="w3">여자3</option>
-                        <option value="w4">여자4</option>
-                        <option value="w5">여자5</option>
                     </select>
                     <br><br><br><br><br><br>
                     <button type="submit" style="width:200px;height:50px;font-size:20px;"> 입력하기 </button>
+                    <br>
+                    <p>입력하기 버튼을 누르신 후 30초 정도 기다려주세요 </p>
+                    <p>새로운 창으로 바뀌고 재생버튼을 누르시면 음성이 실행됩니다 </p>
                 </form>
             </div>
         </section>
