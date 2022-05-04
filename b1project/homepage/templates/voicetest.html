@@ -59,7 +59,7 @@
             <div class="text-center">
                 <p><span style="font-size: 300%"> 어떤 문장을 듣고싶나요?</span></p>
             </div>
-            <div class="container px-4 px-lg-5">
+            <div class="container px-4 px-lg-7">
                 <form method="POST" class = "text-center">{% csrf_token %}
                     <input type="text" name="text" placeholder="한글 텍스트를 입력하세요(특수문자나 숫자를 넣게되면 음성생성이 안돼요)" style="width:1200px;height:50px;font-size:25px;text-align:left;padding-top:5">
                     <br><br><br>
@@ -76,9 +76,11 @@
                     </select>
                     <br><br><br><br><br><br>
                     <button type="submit" style="width:200px;height:50px;font-size:20px;"> 입력하기 </button>
-                    <br>
+                    <br><br>
                     <p>입력하기 버튼을 누르신 후 30초 정도 기다려주세요 </p>
+                    <p>음성 생성하기까지 시간이 조금 필요해요~ </p>
                     <p>새로운 창으로 바뀌고 재생버튼을 누르시면 음성이 실행됩니다 </p>
+
                 </form>
             </div>
         </section>
