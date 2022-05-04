@@ -63,11 +63,13 @@ def voicetest(request):
 
             # command input "python synthesizer"
             # out directory: ....../static/file_audio/{client_session_id}
-            synthesizer = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/synthesizer.py'
+            # synthesizer = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/synthesizer.py'
+            synthesizer = 'synthesizer.py'
             load = 'logdir-tacotron2/50000steps'
             cmd = f'python {synthesizer} --load {load} --sample_path {audio_dir} --text "{text}" --speaker_id {voice_to_num[voice]} --num_speakers 11'
             os.chdir('/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/')
             os.system(cmd)
+            os.chdir(cwd)
             #os.system(f'python /home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/batch2.py --cmd "{cmd}"')
             
             # waiting making the wav file
@@ -85,7 +87,7 @@ def voicetest(request):
         else:
             print('wrong form')
         
-        context = {'audio_name': audio, 'client_session_id':client_session_id}
+        context = {'audio_name': audio, 'client_session_id': client_session_id}
 
         return render(request, 'voicetest.html', context)
 
