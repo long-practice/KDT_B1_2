@@ -57,7 +57,7 @@ def voicetest(request):
         if len(form['text']) and form['voice'] != 'None':
             if os.path.isdir(audio_dir):
                 for file in os.listdir(audio_dir):
-                    os.remove(audio_dir + '/' +  file)
+                    os.remove(audio_dir + '/' + file)
 
             text, voice = form['text'], form['voice']
 
@@ -66,7 +66,8 @@ def voicetest(request):
             # synthesizer = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/synthesizer.py'
             synthesizer = 'synthesizer.py'
             load = 'logdir-tacotron2/50000steps'
-            cmd = f'python {synthesizer} --load {load} --sample_path {audio_dir} --text "{text}" --speaker_id {voice_to_num[voice]} --num_speakers 11'
+            print(voice_to_num[voice])
+            cmd = f'python {synthesizer} --load {load} --sample_path {audio_dir} --num_speakers 11 --speaker_id {voice_to_num[voice]} --text "{text}"'
             os.chdir('/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/')
             os.system(cmd)
             os.chdir(cwd)
