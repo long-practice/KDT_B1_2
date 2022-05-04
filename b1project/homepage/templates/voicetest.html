@@ -18,11 +18,50 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <style>
+            #loading {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: fixed;
+                display: block;
+                opacity: 0.6;
+                background: #e4e4e4;
+                z-index: 99;
+                text-align: center;
+            }
+
+            #loading > img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+		transform: translate(-50%, -50%);
+            }
+
+            #loading > p {
+                    position: absolute;
+                    top: 57%;
+                    left: 47%;
+                    z-index: 101;
+            }
+        </style>	
+	<script>
+            $(document).ready(function(){
+                    $('#loading').hide();
+                    $('#trans').submit(function(){
+                        $('#loading').show();
+                        return true;
+                    });
+            });	
+	</script>
     </head>
     <!-- Full Page Intro -->
     <body>
- 	<div>
-		<img src="../../static/asset/loading_bar.gif" style="width:100px; height:100px;">
+ 	<div id="loading">
+		<img src="../../static/assets/loading_bar.gif">
+		<!-- <p> 변환 중 입니다.</p> -->
 	</div>
         <!-- Masthead-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -63,7 +102,7 @@
                 <p><span style="font-size: 270%"> 어떤 문장을 듣고싶나요?</span></p>
             </div>
             <div class="container px-4 px-lg-5">
-                <form method="POST" class = "text-center">{% csrf_token %}
+                <form method="POST" class = "text-center" id = "trans">{% csrf_token %}
                     <input type="text" name="text" placeholder="한글 텍스트를 입력하세요(특수문자나 숫자를 넣게되면 음성생성이 안돼요)" style="width:1200px;height:50px;font-size:25px;text-align:left;padding-top:5">
                     <br><br><br><br>
                     <p><span style="font-size: 200%">목소리를 선택해주세요</span></p>
@@ -126,13 +165,13 @@
             function stopAudio() {
                 audio.pause();
 		        audio.currentTime = 0;
-	        }
+	    }
         </script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+	<!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
     </body>
 </html>
