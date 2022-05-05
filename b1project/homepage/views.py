@@ -65,7 +65,7 @@ def voicetest(request):
             # out directory: ....../static/file_audio/{client_session_id}
             # synthesizer = '/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/synthesizer.py'
             synthesizer = 'synthesizer.py'
-            load = 'logdir-tacotron2/50000steps'
+            load = 'logdir-tacotron2/78000steps'
             print(voice_to_num[voice])
             cmd = f'python {synthesizer} --load {load} --sample_path {audio_dir} --num_speakers 11 --speaker_id {str(voice_to_num[voice])} --text "{text}"'
             os.chdir('/home/model/KDT_B1/Tacotron2-Wavenet-Korean-TTS/')
